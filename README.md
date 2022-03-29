@@ -14,7 +14,6 @@ Your shell does not need to support any quoting; so arguments with spaces inside
 Your shell must support command lines with a maximum length of 2048 characters, and a maximum of 512 arguments.
 You do not need to do any error checking on the syntax of the command line.
 
-
 2. Comments & Blank Lines
 Your shell should allow blank lines and comments.
 
@@ -22,10 +21,8 @@ Any line that begins with the # character is a comment line and should be ignore
 A blank line (one without any commands) should also do nothing.
 Your shell should just re-prompt for another command when it receives either a blank line or a comment line.
 
-
 3. Expansion of Variable $$
 Your program must expand any instance of "$$" in a command into the process ID of the smallsh itself. Your shell does not otherwise perform variable expansion. 
-
 
 4. Built-in Commands
 Your shell will support three built-in commands: exit, cd, and status. These three built-in commands are the only ones that your shell will handle itself - all others are simply passed on to a member of the exec() family of functions.
@@ -58,14 +55,12 @@ Your shell should use the PATH variable to look for non-built in commands, and i
 If a command fails because the shell could not find the command to run, then the shell will print an error message and set the exit status to 1
 A child process must terminate after running a command (whether the command is successful or it fails).
 
-
 6. Input & Output Redirection
 You must do any input and/or output redirection using dup2(). The redirection must be done before using exec() to run the command.
 
 An input file redirected via stdin should be opened for reading only; if your shell cannot open the file for reading, it should print an error message and set the exit status to 1 (but don't exit the shell).
 Similarly, an output file redirected via stdout should be opened for writing only; it should be truncated if it already exists or created if it does not exist. If your shell cannot open the output file it should print an error message and set the exit status to 1 (but don't exit the shell).
 Both stdin and stdout for a command can be redirected at the same time (see example below).
-
 
 7. Executing Commands in Foreground & Background
 Foreground Commands
@@ -78,7 +73,6 @@ The shell will print the process id of a background process when it begins.
 When a background process terminates, a message showing the process id and exit status will be printed. This message must be printed just before the prompt for a new command is displayed.
 If the user doesn't redirect the standard input for a background command, then standard input should be redirected to /dev/null
 If the user doesn't redirect the standard output for a background command, then standard output should be redirected to /dev/null
-
 
 8. Signals SIGINT & SIGTSTP
 SIGINT
